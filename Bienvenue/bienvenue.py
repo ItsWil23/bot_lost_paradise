@@ -14,9 +14,10 @@ class Welcome(commands.Cog):
     def __init__(self, bot: commands.Bot):
         self.bot = bot
     
-    @commands.Cog.listener()
-    async def on_member_join(self, member):        
-
+#    @commands.Cog.listener()
+#    async def on_member_join(self, member):        
+    @commands.command()
+    async def w(self, ctx, member: discord.Member = None):
         filename = 'image-bienvenue1.png'
 
         img_b = Image.open('bienvenue1.png')
