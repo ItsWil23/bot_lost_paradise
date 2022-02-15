@@ -1,5 +1,5 @@
 git+https://github.com/Rapptz/discord.py
-Python==3.10.2
+python-3.10.2
 dnspython==1.16.0
 discord-py-slash-command
 PyNaCl
