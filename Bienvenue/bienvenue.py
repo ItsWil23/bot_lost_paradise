@@ -26,7 +26,7 @@ class Welcome(commands.Cog):
 
         img_b = Image.open('/app/Bienvenue/bienvenue1.png')
 
-        user = member
+        user = self.bot.get_user(member)
         userAvatarUrl = user.avatar_url
 
         with requests.get(userAvatarUrl) as r:
