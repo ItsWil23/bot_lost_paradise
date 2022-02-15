@@ -14,15 +14,15 @@ class Voc(commands.Cog):
         self.bot = bot
 
     async def cog_check(self, ctx):
-        gerants = get(ctx.guild.roles, id = int(getenv('gerants')),)
+        gerants = get(ctx.guild.roles, id = getenv('gerants'))
         return gerants in ctx.author.roles
 
     async def cog_check(self, ctx):
-        responsable = get(ctx.guild.roles, id = int(getenv('responsable')),)
+        responsable = get(ctx.guild.roles, id = getenv('responsable'))
         return responsable in ctx.author.roles
 
     async def cog_check(self, ctx):
-        secretaire = get(ctx.guild.roles, id = int(getenv('secretaire')),)
+        secretaire = get(ctx.guild.roles, id = getenv('secretaire'))
         return secretaire in ctx.author.roles
 
 #    async def cog_check(self, ctx):
