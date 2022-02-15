@@ -27,7 +27,7 @@ class Welcome(commands.Cog):
 
         img_b = Image.open('/app/Bienvenue/bienvenue1.png')
 
-       # userAvatarUrl = member.avatar_ur
+        userAvatarUrl = member.avatar_ur
 
         with requests.get(userAvatarUrl) as r:
             img_data = r.content
