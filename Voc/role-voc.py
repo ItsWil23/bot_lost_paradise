@@ -14,7 +14,7 @@ class RoleVoc(commands.Cog):
     async def on_voice_state_update(self, member, before, after):
         if not before.channel and after.channel:
             member = member
-            role = discord.utils.get(member.guild.roles, id = os.getenv('en_voc')) #id du rôle "En voc"
+            role = discord.utils.get(member.guild.roles, id = [os.getenv('en_voc')]) #id du rôle "En voc"
             await member.add_roles(role) #rôle "En voc" est donné quand une voc est rejoint
         
         elif before.channel and not after.channel:
