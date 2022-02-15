@@ -55,7 +55,7 @@ class Welcome(commands.Cog):
 
         img_b.save(filename)
 
-        channel_id = 889222155148079155
+        channel_id = 889147151421157410
         channel = self.bot.get_channel(channel_id)
         file = discord.File(filename)
         msg = await channel.send('**<@&892846720327770122>''\r\n'f'Bienvenue {member.mention} sur __{member.guild.name}__ !''\r\n'f"N'hésites pas à prendre tes rôles dans :"'\r\n'
