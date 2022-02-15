@@ -19,7 +19,7 @@ class Welcome(commands.Cog):
 
         filename = 'image-bienvenue1.png'
 
-        img_b = Image.open('C:/Users/homaw/Desktop/Lost-Paradise-Bot/Bienvenue/bienvenue1.png')
+        img_b = Image.open('bienvenue1.png')
 
         asset = member.avatar_url_as(size=1024)
         data = BytesIO(await asset.read())
@@ -52,7 +52,7 @@ class Welcome(commands.Cog):
         await asyncio.sleep(1)
 
         try: 
-            os.remove('C:/Users/homaw/Desktop/Lost-Paradise-Bot/Bienvenue/' + filename)
+            os.remove(filename)
         except:
             pass
 
