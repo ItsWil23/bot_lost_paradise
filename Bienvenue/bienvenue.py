@@ -20,7 +20,7 @@ class Welcome(commands.Cog):
     async def w(self, ctx, member: discord.Member = None):
         filename = 'image-bienvenue1.png'
 
-        img_b = Image.open('bienvenue1.png')
+        img_b = Image.open('/app/Bienvenue/bienvenue1.png')
 
         asset = member.avatar_url_as(size=1024)
         data = BytesIO(await asset.read())
@@ -28,8 +28,8 @@ class Welcome(commands.Cog):
         pfp = circle(pfp)
         pfp = pfp.resize((160,160))
 
-        font_b = ImageFont.truetype('C:/Users/homaw/Desktop/Lost-Paradise-Bot/Bienvenue/Cream-Cake.ttf', 100)                 #font pour bienvenue
-        font_n = ImageFont.truetype('C:/Users/homaw/Desktop/Lost-Paradise-Bot/Bienvenue/Please-write-me-a-song.ttf', 40)      #font pour le nom
+        font_b = ImageFont.truetype('/app/Bienvenue/Cream-Cake.ttf', 100)                 #font pour bienvenue
+        font_n = ImageFont.truetype('/app/Bienvenue/Please-write-me-a-song.ttf', 40)      #font pour le nom
         
         draw = ImageDraw.Draw(img_b)
         bienvenue = 'Bienvenue'
