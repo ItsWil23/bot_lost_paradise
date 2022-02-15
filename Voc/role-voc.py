@@ -19,7 +19,7 @@ class RoleVoc(commands.Cog):
         
         elif before.channel and not after.channel:
             member = member
-            role = discord.utils.get(member.guild.roles, id = int(getenv('en_voc')),) #id du rôle "En voc"
+            role = discord.utils.get(member.guild.roles, id = getenv('en_voc')) #id du rôle "En voc"
             await member.remove_roles(role) # rôle "En voc" est retiré quand une voc est quitté
 
 def setup(bot: commands.Bot):
