@@ -5,3 +5,4 @@ PyNaCl
 numpy
 Pillow
 python-dotenv
+requests
