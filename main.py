@@ -8,7 +8,7 @@ load_dotenv()
 intents = discord.Intents.default() 
 intents.members = True
 
-bot = commands.Bot(command_prefix='!lp', intents = intents)
+bot = commands.Bot(command_prefix='!lp ', intents = intents)
 slash = SlashCommand(bot, sync_commands = True)
 
 bot.load_extension('Bienvenue.bienvenue')
