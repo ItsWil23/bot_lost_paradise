@@ -1,4 +1,5 @@
 import os
+import requests
 import discord
 import asyncio
 from discord.ext import commands
@@ -18,14 +19,24 @@ class Welcome(commands.Cog):
 #    async def on_member_join(self, member):        
     @commands.command()
     async def w(self, ctx, member: discord.Member = None):
+
+        if member == None:
+            member = ctx.author
+
         filename = 'image-bienvenue1.png'
 
         img_b = Image.open('/app/Bienvenue/bienvenue1.png')
 
-        asset = member.avatar_url_as(size=1024)
-        data = BytesIO(await asset.read())
-        pfp = Image.open(data).convert("RGBA")
-        pfp = circle(pfp)
+        userAvatarUrl = member.avatar_ur
+
+        with requests.get(userAvatarUrl) as r:
+            img_data = r.content
+        with open('profile.jpg', 'wb') as handler:
+            handler.write(img_data)
+        asset = Image.open("profile.jpg")
+        asset = asset.resize((1024, 1024), resample=0)
+
+        pfp = circle(asset)
         pfp = pfp.resize((160,160))
 
         font_b = ImageFont.truetype('/app/Bienvenue/Cream-Cake.ttf', 100)                 #font pour bienvenue
