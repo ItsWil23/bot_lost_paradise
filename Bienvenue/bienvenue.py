@@ -15,13 +15,13 @@ class Welcome(commands.Cog):
     def __init__(self, bot: commands.Bot):
         self.bot = bot
     
-#    @commands.Cog.listener()
-#    async def on_member_join(self, member):        
-    @commands.command()
-    async def w(self, ctx, member: discord.Member = None):
+    @commands.Cog.listener()
+    async def on_member_join(self, member):        
+#    @commands.command()
+#    async def w(self, ctx, member: discord.Member = None):
 
-        if member == None:
-            member = ctx.author
+#        if member == None:
+#            member = ctx.author
 
         filename = 'image-bienvenue1.png'
 
