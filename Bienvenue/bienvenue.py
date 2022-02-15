@@ -26,7 +26,9 @@ class Welcome(commands.Cog):
 
         img_b = Image.open('/app/Bienvenue/bienvenue1.png')
 
-        with requests.get(member.avatar_url) as r:
+        userAvatarUrl = member.avatar_url
+
+        with requests.get(userAvatarUrl) as r:
             img_data = r.content
         with open('profile.jpg', 'wb') as handler:
             handler.write(img_data)
