@@ -1,5 +1,4 @@
 import os
-import requests
 import discord
 import asyncio
 from discord.ext import commands
@@ -21,21 +20,12 @@ class Welcome(commands.Cog):
     async def w(self, ctx, member: discord.Member = None):
         filename = 'image-bienvenue1.png'
 
-        if member == None:
-            member = ctx.author
-
         img_b = Image.open('/app/Bienvenue/bienvenue1.png')
 
-        userAvatarUrl = member.avatar_url
-
-        with requests.get(userAvatarUrl) as r:
-            img_data = r.content
-        with open('profile.jpg', 'wb') as handler:
-            handler.write(img_data)
-        asset = Image.open("profile.jpg")
-        asset = asset.resize((1024, 1024), resample=0)
-
-        pfp = circle(asset)
+        asset = member.avatar_url_as(size=1024)
+        data = BytesIO(await asset.read())
+        pfp = Image.open(data).convert("RGBA")
+        pfp = circle(pfp)
         pfp = pfp.resize((160,160))
 
         font_b = ImageFont.truetype('/app/Bienvenue/Cream-Cake.ttf', 100)                 #font pour bienvenue
@@ -57,7 +47,7 @@ class Welcome(commands.Cog):
         channel_id = 889222155148079155
         channel = self.bot.get_channel(channel_id)
         file = discord.File(filename)
-        msg = await channel.send('**<@&908377456552050779>''\r\n'f'Bienvenue {member.mention} sur __{member.guild.name}__ !''\r\n'f"N'hésites pas à prendre tes rôles dans :"'\r\n'
+        msg = await channel.send('**<@&892846720327770122>''\r\n'f'Bienvenue {member.mention} sur __{member.guild.name}__ !''\r\n'f"N'hésites pas à prendre tes rôles dans :"'\r\n'
         f'> ➥ <#889610595370926121>''\r\n'f'> ➥ <#889731351501213756>''\r\n'f'Après ça viens discuter avec les autres, et trouver ta place au sein de notre communauté !''\r\n'
         f'━━━━━━━ ✗ ━━━━━━━**', file = file)
         await asyncio.sleep(1)
