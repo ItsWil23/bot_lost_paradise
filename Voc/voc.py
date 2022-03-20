@@ -14,15 +14,15 @@ class Voc(commands.Cog):
         self.bot = bot
 
     async def cog_check(self, ctx):
-        gerants = get(ctx.guild.roles, id = 889167189830160414)
+        gerants = discord.utils.get(ctx.guild.roles, id = 889167189830160414)
         return gerants in ctx.author.roles
 
     async def cog_check(self, ctx):
-        responsable = get(ctx.guild.roles, id = 889168031647928370)
+        responsable = discord.utils.get(ctx.guild.roles, id = 889168031647928370)
         return responsable in ctx.author.roles
 
     async def cog_check(self, ctx):
-        secretaire = get(ctx.guild.roles, id = 889176817284562945)
+        secretaire = discord.utils.get(ctx.guild.roles, id = 889176817284562945)
         return secretaire in ctx.author.roles
 
 #    async def cog_check(self, ctx):
@@ -35,6 +35,7 @@ class Voc(commands.Cog):
     
     @commands.command()
     async def join(self, ctx):
+        #gerant = discord.utils.get(ctx.guild.roles, id = 889167189830160414)
         channel = ctx.author.voice.channel
         await ctx.send('Joined !')
         await channel.connect()
