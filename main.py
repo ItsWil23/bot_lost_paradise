@@ -14,6 +14,7 @@ slash = SlashCommand(bot, sync_commands = True)
 bot.load_extension('Bienvenue.bienvenue')
 bot.load_extension('Voc.role-voc')
 bot.load_extension('Voc.voc')
+bot.load_extension('Ping.ping')
 
 @bot.event
 async def on_ready():
